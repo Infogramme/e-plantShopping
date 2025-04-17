@@ -1,49 +1,27 @@
-
-import React, { useState } from 'react';
+// App.jsx
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './store';
 import ProductList from './ProductList';
-import './App.css';
-import AboutUs from './AboutUs';
+import CartItem from './CartItem';
 
-function App() {
-  
-  const [showProductList, setShowProductList] = useState(false);
+// Sample plant data
+const plantsArray = [
+  { name: 'Cactus', imageURL: 'cactus.jpg', description: 'A beautiful cactus plant', cost: 12.99 },
+  { name: 'Fern', imageURL: 'fern.jpg', description: 'A vibrant fern plant', cost: 15.99 },
+  { name: 'Succulent', imageURL: 'succulent.jpg', description: 'A trendy succulent plant', cost: 8.99 },
+];
 
-  const handleGetStartedClick = () => {
-    setShowProductList(true);
-  };
-
-  const handleHomeClick = () => {
-    setShowProductList(false);
-  };
-
+const App = () => {
   return (
-    <div className="app-container">
-      <div className={`landing-page ${showProductList ? 'fade-out' : ''}`}>
-        <div className="background-image"></div>
-        <div className="content">
-         <div className="landing_content">
-         <h1>Welcome To Paradise Nursery</h1>
-          <div className="divider"></div>
-          <p>Where Green Meets Serenity</p>
-         
-          <button className="get-started-button" onClick={handleGetStartedClick}>
-            Get Started
-          </button>
-         </div>
-          <div className="aboutus_container">
-          <AboutUs/>
-          </div>
-          </div>
-
+    <Provider store={store}>
+      <div>
+        <h1>Plant Shop</h1>
+        <ProductList plantsArray={plantsArray} />
+        {/* Render Cart Items (this would be a separate cart page or section) */}
       </div>
-      <div className={`product-list-container ${showProductList ? 'visible' : ''}`}>
-        <ProductList onHomeClick={handleHomeClick}/>
-      </div>
-    </div>
+    </Provider>
   );
-}
+};
 
 export default App;
-
-
-
