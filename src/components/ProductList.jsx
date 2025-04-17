@@ -1,4 +1,3 @@
-
 import { useDispatch } from 'react-redux';
 import { addItem } from '../CartSlice';
 import './ProductList.css';
