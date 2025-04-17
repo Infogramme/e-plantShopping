@@ -1,27 +1,22 @@
-// App.jsx
 import React from 'react';
-import { Provider } from 'react-redux';
-import store from './store';
-import ProductList from './ProductList';
-import CartItem from './CartItem';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProductList from './components/ProductList';
+import CartItem from './components/CartItem';
 
-// Sample plant data
-const plantsArray = [
-  { name: 'Cactus', imageURL: 'cactus.jpg', description: 'A beautiful cactus plant', cost: 12.99 },
-  { name: 'Fern', imageURL: 'fern.jpg', description: 'A vibrant fern plant', cost: 15.99 },
-  { name: 'Succulent', imageURL: 'succulent.jpg', description: 'A trendy succulent plant', cost: 8.99 },
-];
-
-const App = () => {
+function App() {
   return (
-    <Provider store={store}>
-      <div>
-        <h1>Plant Shop</h1>
-        <ProductList plantsArray={plantsArray} />
-        {/* Render Cart Items (this would be a separate cart page or section) */}
-      </div>
-    </Provider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<ProductList />} />
+        <Route path="/cart" element={<CartItem />} />
+      </Routes>
+    </Router>
   );
-};
+}
 
 export default App;
+import { Link } from 'react-router-dom';
+
+<nav>
+  <Link to="/">Shop</Link> | <Link to="/cart">Cart</Link>
+</nav>
