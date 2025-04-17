@@ -2,7 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductList from './components/ProductList';
 import CartItem from './components/CartItem';
-
+import { Routes, Route } from 'react-router-dom';  // React Router v6 import
+// Inside App component
+<Switch>
+  <Route path="/" exact component={ProductList} />
+  <Route path="/cart" component={CartItem} />
+</Switch>
 function App() {
   return (
     <Router>
