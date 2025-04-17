@@ -3,5 +3,8 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "react-scripts": "^5.0.1"
   }
 }
