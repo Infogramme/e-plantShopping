@@ -145,3 +145,17 @@
     width: 90%; /* Adjust as needed */
   }
 }
+.cart-item {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-details {
+  flex-grow: 1;
+}
+
+.cart-actions button {
+  padding: 5px 10px;
+}
